@@ -1,1 +1,33 @@
-<p>courses works!</p>
+<h2>Webbutveckling - Ramschema</h2>
+
+<!--infogar ett felmeddelande om det inte går att ansluta till datan-->
+@if(error()) {
+    <div class="error">
+        <p>{{ error() }}</p>
+    </div>
+}
+
+<!--sökruta för kurserna-->
+<input type="text" placeholder="Sök efter kurs...">
+
+<!--vill att kurserna visas i en tabell-->
+<table>
+    <thead>
+        <tr>
+            <th>Kurskod</th>
+            <th>Kursnamn</th>
+            <th>Progression</th>
+            <th>Kursplan</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(course of courses(); track course.code) {
+            <tr>
+                <td>{{ course.code }}</td>
+                <td>{{ course.coursename }}</td>
+                <td>{{ course.progression }}</td>
+                <td><a [href]="course.syllabus" target="_blank">Länk till kursplan</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
