@@ -8,9 +8,12 @@
 }
 
 <!--sökruta för kurserna-->
+<div class="input-container">
 <input type="text" placeholder="Sök efter kurs...">
+</div>
 
 <!--vill att kurserna visas i en tabell-->
+<div class="table-container">
 <table>
     <thead>
         <tr>
@@ -26,8 +29,9 @@
                 <td>{{ course.code }}</td>
                 <td>{{ course.coursename }}</td>
                 <td>{{ course.progression }}</td>
-                <td><a [href]="course.syllabus" target="_blank">Länk till kursplan</a></td>
+                <td><a [href]="course.syllabus" target="_blank">Visa kursplan</a></td>
             </tr>
         }
     </tbody>
 </table>
+</div>
