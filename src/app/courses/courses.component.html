@@ -9,7 +9,7 @@
 
 <!--sökruta för kurserna-->
 <div class="input-container">
-<input type="text" placeholder="Sök efter kurs...">
+<input type="text" placeholder="Sök efter kurs..." [(ngModel)]="filterValue" (input)="applyFilter()">
 </div>
 
 <!--vill att kurserna visas i en tabell-->
@@ -24,14 +24,12 @@
         </tr>
     </thead>
     <tbody>
-        @for(course of courses(); track course.code) {
-            <tr>
+            <tr *ngFor="let course of filteredCourses()">
                 <td>{{ course.code }}</td>
                 <td>{{ course.coursename }}</td>
                 <td>{{ course.progression }}</td>
                 <td><a [href]="course.syllabus" target="_blank">Visa kursplan</a></td>
             </tr>
-        }
     </tbody>
 </table>
 </div>
