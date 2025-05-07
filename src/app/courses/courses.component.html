@@ -12,14 +12,14 @@
 <input type="text" placeholder="Sök efter kurs..." [(ngModel)]="filterValue" (input)="applyFilter()">
 </div>
 
-<!--vill att kurserna visas i en tabell-->
+<!--vill att kurserna visas i en tabell, lagt till click på th för att sedan kunna sortera-->
 <div class="table-container">
 <table>
     <thead>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Progression</th>
+            <th (click)="sortingCourses('code')">Kurskod</th>
+            <th (click)="sortingCourses('coursename')">Kursnamn</th>
+            <th (click)="sortingCourses('progression')">Progression</th>
             <th>Kursplan</th>
         </tr>
     </thead>

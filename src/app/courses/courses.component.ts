@@ -44,7 +44,11 @@ export class CoursesComponent {
     this.filteredCourses.set(filterCourse);
   }
   
-
-
-  
+  //sorterar på th kolumnerna, kod, namn och progression med hjälp av field
+  sortingCourses(field: 'code' | 'coursename' | 'progression'): void {
+    const sorted = this.filteredCourses().sort((a, b) => {
+      return a[field].localeCompare(b[field]);
+    });
+    this.filteredCourses.set(sorted);
+  } 
 }
